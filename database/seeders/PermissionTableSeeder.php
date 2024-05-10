@@ -23,9 +23,13 @@ class PermissionTableSeeder extends Seeder
            'book-create',
            'book-edit',
            'book-delete',
-           
            'gategory-add',
-           'sub_gategory-add'
+           'sub_gategory-add',
+
+           'user-list',
+           'user-add',
+           'user-edit',
+           'user-delete',
         ];
    
         foreach ($permissions as $permission) {
