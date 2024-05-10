@@ -6,7 +6,7 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Users Management</h2>
-        @can('user-create')    
+        @can('user-add')    
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
@@ -31,6 +31,9 @@
    <th>Roles</th>
    <th width="280px">Action</th>
  </tr>
+ <?php
+      $i= 0;
+      ?>
  @foreach ($data as $key => $user)
   <tr>
     <td>{{ ++$i }}</td>

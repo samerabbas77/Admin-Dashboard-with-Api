@@ -27,8 +27,7 @@ class UpdateBookRequest extends FormRequest
     public function rules()
     {
         return [
-                'name' => 'required',
-                'gategory' => 'required',	       
+                'name' => 'required',	       
                 'sub_gategory' => 'required',	        
                 'publisher_name' => 'required',	       
                 'publish_date' => 'required',

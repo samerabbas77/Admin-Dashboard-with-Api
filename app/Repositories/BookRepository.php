@@ -36,9 +36,10 @@
         }
         public function Updateebook($request,$Book)
         {
+            $subgategory = SubGategory::find($request->sub_gategory);
             $Book->update([           
                 'name' => $request->name,
-                'gategory_id' =>  $request->gategory,	       
+                'gategory_id' =>  $subgategory->gategory_id,	       
                 'subGategory_id' =>  $request->sub_gategory,	        
                 'publisher_name' => $request->publisher_name,	       
                 'publish_date' =>$request->publish_date

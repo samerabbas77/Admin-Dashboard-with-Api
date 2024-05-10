@@ -39,24 +39,6 @@
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            {{-- <strong>Category:</strong>
-		            <select name="gategory" id="">
-							<option value="">Choose a Main Category</option>
-							@foreach($gategories as $gategory)       
-								<option value="{{$gategory->id}}">{{$gategory->name}}</option>   						
-							@endforeach
-					</select>
-		        </div>
-		    </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Sub Gategory :</strong>
-		            <select name="sub_gategory" id="">
-						<option value="">Choose a Sub Category</option>
-						@foreach($sub_gategories as $subgategory)       
-							<option value="{{$subgategory->id}}">{{$subgategory->name}}</option>   						
-						@endforeach
-				</select>         --}}
 				<select name="sub_gategory">
 					@foreach($gategories as $gategory)
 				 	<optgroup  label={{$gategory->name}} >
