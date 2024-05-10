@@ -162,10 +162,11 @@ class APIService
          $review = $this->repo->reviewSearch($book);
          if(!$review)
             return ['message' => 'You Do not hve Reveiw on This Book!!'];
-         $review->update([
-            'content'     =>$request->content,
-            'star'        =>$request->star,
-         ]);
+         if($request->contentt) $review->content = $request->content;
+         if($request->star) $review->star = $request->star;
+         $review->save();
+                 
+         
    
          return $this->createReviewResponse(new ReviewResource($review),Auth::user()->name);
     }

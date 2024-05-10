@@ -31,7 +31,7 @@ class UpdatereviewRequest extends FormRequest
 
         return [     
                 'content'  =>['max:200'],
-                'star'     =>'integer|between:1,5|'
+                'star'     =>'nullable|integer|between:1,5|'
         ];
     }
         public function failedValidation(Validator $validator)
