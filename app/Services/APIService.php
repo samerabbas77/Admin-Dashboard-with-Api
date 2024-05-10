@@ -44,12 +44,18 @@ class APIService
     public function book_filter_Service($request)
     {             
         //Filter by  Categoury  
-        $gategories= $this->repo->searchByGategory($request); 
-        if($gategories->isEmpty()) return response()->json('messgae:There are no Category!! ') ;     
+        $gategories= $this->repo->searchByGategory($request);
+        if($gategories->isEmpty()) return response()->json('messgae:There are no Category!! ') ; 
+      
         foreach($gategories as $gategory)
         {
+            if(($gategory->books)->isEmpty()) return response()->json('messgae:There are no  Book in this Category!! ');;      
+
             foreach($gategory->books as $book)
+            {   
                 $idarray[]= $book->name;
+            }
+                  
         }
         $search = Book::whereIn('name',$idarray)->get();
 
@@ -65,6 +71,8 @@ class APIService
          
         foreach($subgategories as $subgategory)
         {
+            if(($subgategory->books)->isEmpty()) return response()->json('messgae:There are no  Book in this Sub Category!! ');;      
+
             foreach($subgategory->books as $book)
                 $idarray[]= $book->name;
         }

@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Gategory;
 use App\Models\SubGategory;
+use App\Services\APIService;
 use App\Http\Traits\ApiResponses;
 use App\Http\Requests\FilterRequest;
 use App\Http\Requests\ReviewRequest;
 use App\Http\Resources\BookResource;
+
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Resources\ReviewResource;
 use App\Http\Requests\FilterSubRequest;
 use App\Http\Resources\GategoryResource;
-use App\Http\Resources\SubGategoryResource;
-use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Http\Requests\UpdatereviewRequest;
 
-use App\Services\APIService;
+use App\Http\Resources\SubGategoryResource;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
 class ApiController extends Controller
@@ -81,7 +82,7 @@ class ApiController extends Controller
      return $this->service->reviewService($request,$book);
     }
 
-    public function updteReview(ReviewRequest $request,Book $book)
+    public function updteReview(UpdatereviewRequest $request,Book $book)
     { 
       return $this->service->updteReviewService($request,$book);   
     }
